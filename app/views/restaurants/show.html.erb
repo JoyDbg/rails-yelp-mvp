@@ -1,0 +1,45 @@
+<div class="container p-5">
+  <div class="row justify-content-center">
+    <h1> <i class="fa-solid fa-utensils"></i> Your chosen restaurant <i class="fa-solid fa-utensils"></i> </h1>
+    <div class="col-12 p-5">
+      <div class="card">
+        <div class="card-header">
+          <p class="text-center"><%= @restaurant.name %></i></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= @restaurant.address %></li>
+          <li class="list-group-item"><%= @restaurant.phone_number %></li>
+          <li class="list-group-item"><%= @restaurant.category %></li>
+        </ul>
+      </div>
+
+      <h2 class="text-align-center"> Add a review </h2>
+      <%= render "reviews/form", review: @review, restaurant: @restaurant %>
+
+
+      <div class="card-header">
+        <p class="text-center">Reviews</p>
+      </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Review</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @restaurant.reviews.each do |review| %>
+              <tr>
+              <td><%= review.content %></td>
+              <td><%= review.rating %></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+      <div class="d-grid gap-2 col-4 mx-auto p-2">
+        <%= link_to "Back to list", restaurants_path, class: "btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+</div>

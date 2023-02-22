@@ -1,0 +1,9 @@
+<div class="container p-5">
+  <h1 class="text-center"><i class="fa-solid fa-utensils"></i> Add your restaurant<i class="fa-solid fa-utensils"></i> </h1>
+  <div class="col-12 p-5">
+      <%= render "form", restaurant: @restaurant %>
+        <div class="d-grid gap-2 col-6 mx-auto p-5">
+          <%= link_to "Back to list", restaurants_path, class: "btn btn-secondary mt-3" %>
+        </div>
+  </div>
+</div>
